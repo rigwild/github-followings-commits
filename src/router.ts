@@ -22,27 +22,23 @@ const routes: Array<{ regexp: RegExp; fn: Function }> = [
   }
 ]
 
-interface RouterObj {
-  exist: boolean
-  fn: Function | null
+interface RouteObj {
+  fn: Function
   params: Array<String> | null
 }
 
 // Get an object corresponding to the route
-const router = (url: String): RouterObj => {
+const router = (url: String): RouteObj | null => {
   let x: Array<String> | null
-
   for (const aRoute of routes) {
     if ((x = url.match(aRoute.regexp))) {
       return {
-        exist: true,
         fn: aRoute.fn,
         params: x.length >= 2 ? x.slice(1) : null
       }
     }
   }
-
-  return { exist: false, fn: null, params: null }
+  return null
 }
 
 export default router

@@ -12,13 +12,12 @@ const handler: RequestHandler = async (_req, _res) => {
   const route = router(_req.url || '/')
 
   // Route does not exist
-  if (!route.exist || !route.fn) {
+  if (!route) {
     _res.statusCode = 500
     return `The provided route "${_req.url}" does not exist.`
   }
 
-  if (route.params) return await route.fn(...route.params)
-  else return await route.fn()
+  return await route.fn(...(route.params || []))
 }
 
 export default handler
