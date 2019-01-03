@@ -3,23 +3,24 @@
 import conf from './config'
 import fetch from 'node-fetch'
 
+const getFollowings = (username: String) =>
+  fetch(`${conf.API}/users/${username}/following`).then(res => res.json())
+
+const getEvents = (username: String) =>
+  fetch(`${conf.API}/users/${username}/events`).then(res => res.json())
+
 const routes: Array<{ regexp: RegExp; fn: Function }> = [
   {
     // Get all the users the user is following - /:username/events
     regexp: /^\/(.*?)\/followings$/,
-    fn: (username: String) =>
-      fetch(`${conf.API}/users/${username}/following`).then(res => res.json())
+    fn: getFollowings
   },
   {
     // Get the last events of a user - /:username/events
     regexp: /^\/(.*?)\/events$/,
-    fn: (username: String) =>
-      fetch(`${conf.API}/users/${username}/following`).then(res => res.json())
+    fn: getEvents
   }
 ]
-
-const getEvents = (username: String) =>
-  fetch(`${conf.API}/users/${username}/events`).then(res => res.json())
 
 interface RouterObj {
   exist: boolean
