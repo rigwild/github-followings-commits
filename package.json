@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "deploy": "now"
+    "serve": "tsc && cd dist/ && micro index.js",
+    "watch": "nodemon -e ts -w ./src -x npm run serve",
+    "deploy": "now && now alias"
   },
   "author": "rigwild",
   "repository": {

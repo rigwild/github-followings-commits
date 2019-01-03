@@ -10,10 +10,12 @@ When deployed, this file is not sent to now servers.
 
 import { RequestHandler } from 'micro'
 
+import getFollowings from './getFollowings'
+
 const handler: RequestHandler = (req, res) => {
   switch (req.url) {
     case '/getFollowings':
-      require('./getFollowings')(req, res)
+      getFollowings(req, res)
       break
 
     default:
