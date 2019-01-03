@@ -1,0 +1,25 @@
+{
+  "name": "github-followings-commits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "cd dist/ && node index.js",
+    "build": "tsc",
+    "watch": "nodemon -e ts -w ./src -x npm run watch:serve",
+    "watch:serve": "ts-node src/index.ts"
+  },
+  "author": "rigwild",
+  "license": "MIT",
+  "dependencies": {
+    "micro": "^9.3.3",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/micro": "^7.3.3",
+    "@types/node-fetch": "^2.1.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  }
+}
