@@ -1,7 +1,7 @@
 {
   "name": "github-followings-commits",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quickly see all commits from your GitHub followings 👓",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
