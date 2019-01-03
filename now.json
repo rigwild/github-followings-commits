@@ -1,0 +1,19 @@
+{
+  "name": "github-followings-commits",
+  "version": 2,
+  "builds": [
+    { "src": "src/getFollowings.ts", "use": "@now/node@canary" },
+    { "src": "src/functions.ts", "use": "@now/node@canary" },
+    { "src": "public/*", "use": "@now/static" }
+  ],
+  "routes": [
+    {
+      "src": "^/api/getFollowings",
+      "dest": "/src/getFollowings.ts"
+    },
+    {
+      "src": "/(.*?)",
+      "dest": "/public/$1"
+    }
+  ]
+}
