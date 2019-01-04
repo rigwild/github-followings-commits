@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>github-followings-commits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="searchedUser">
+      <div class="form-group">
+        <label class="col-form-label" for="input-searchedUser">Search an user</label>
+        <input v-model="searchedUser" @blur="getEvents(searchedUser, true)"
+        type="text" class="form-control" placeholder="Searched user ..." id="input-searchedUser"
+        />
+      </div>
+    </div>
+
+    <div class="events">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Event type</th>
+            <th>Repository</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(aEvent, index) in events" :key="'event-' + index">
+            <td>{{ ++index }}</td>
+            <td>
+              <a :href="'https://github.com/' + aEvent.actor.login" target="_blank" rel="noreferrer noopener" >
+                <img :src="aEvent.actor.avatar_url" />
+                {{ aEvent.actor.login }}
+              </a>
+            </td>
+            <td>
+              {{ aEvent.type }}
+            </td>
+            <td>
+              <a :href="'https://github.com/' + aEvent.repo.name" target="_blank" rel="noreferrer noopener">{{ aEvent.repo.name }}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="./assets/js/vue.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

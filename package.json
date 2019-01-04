@@ -6,14 +6,16 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "serve": "tsc && cd dist/ && micro index.js",
-    "watch": "nodemon -e ts -w ./src -x npm run serve",
+    "serve": "cd public/ && serve",
+    "watch:public": "nodemon -e html,js,css -w ./public -x npm run serve",
+    "serve-api": "tsc && cd dist/ && micro index.js",
+    "watch:api": "nodemon -e ts -w ./src -x npm run serve-api",
     "deploy": "now && now alias"
   },
   "author": "rigwild",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/rigwild/github-followings-commits"
+    "type": "git",
+    "url": "https://github.com/rigwild/github-followings-commits"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@types/micro": "^7.3.3",
     "@types/node-fetch": "^2.1.4",
+    "serve": "^10.1.1",
     "typescript": "^3.2.2"
   }
 }

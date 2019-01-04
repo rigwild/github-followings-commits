@@ -13,7 +13,7 @@ import { RequestHandler } from 'micro'
 import getFollowings from './getFollowings'
 import getEvents from './getEvents'
 
-const handler: RequestHandler = async (req, res) => {
+const handler: RequestHandler = (req, res) => {
   switch (req.url) {
     case '/getFollowings': return getFollowings(req, res)
     case '/getEvents': return getEvents(req, res)
