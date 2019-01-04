@@ -3,6 +3,7 @@
   "version": 2,
   "builds": [
     { "src": "src/getFollowings.ts", "use": "@now/node@canary" },
+    { "src": "src/getEvents.ts", "use": "@now/node@canary" },
     { "src": "src/functions.ts", "use": "@now/node@canary" },
     { "src": "public/*", "use": "@now/static" }
   ],
@@ -10,6 +11,10 @@
     {
       "src": "^/api/getFollowings",
       "dest": "/src/getFollowings.ts"
+    },
+    {
+      "src": "^/api/getEvents",
+      "dest": "/src/getEvents.ts"
     },
     {
       "src": "/(.*?)",

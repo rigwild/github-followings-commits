@@ -11,12 +11,12 @@ When deployed, this file is not sent to now servers.
 import { RequestHandler } from 'micro'
 
 import getFollowings from './getFollowings'
+import getEvents from './getEvents'
 
-const handler: RequestHandler = (req, res) => {
+const handler: RequestHandler = async (req, res) => {
   switch (req.url) {
-    case '/getFollowings':
-      getFollowings(req, res)
-      break
+    case '/getFollowings': return getFollowings(req, res)
+    case '/getEvents': return getEvents(req, res)
 
     default:
       res.setHeader('Content-Type', 'application/json')
