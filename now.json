@@ -5,7 +5,7 @@
     { "src": "src/getFollowings.ts", "use": "@now/node@canary" },
     { "src": "src/getEvents.ts", "use": "@now/node@canary" },
     { "src": "src/functions.ts", "use": "@now/node@canary" },
-    { "src": "public/*", "use": "@now/static" }
+    { "src": "public/**", "use": "@now/static" }
   ],
   "routes": [
     {
